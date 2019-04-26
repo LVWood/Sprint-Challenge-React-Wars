@@ -1,15 +1,22 @@
 import React from 'react';
 
 const Characters = props => {
+
     return (
     <div className="character-card">
         <div className="character-stats">
-            <h3>{props.charData.name}Name</h3>
-            <ul>
-                <li>{props.charData.homeworld}homeworld</li>
-                <li>{props.charData.species}species</li>
-                <li>{props.charData.films}movies</li>
-            </ul>
+        {this.state.charData.map(character => {
+            return (
+                <div>
+                    <h3>{props.characters.name}Name</h3>
+                    <ul>
+                        <li>{props.characters.homeworld}homeworld</li>
+                        <li>{props.characters.species}species</li>
+                        <li>{props.characters.films}movies</li>
+                    </ul>
+                </div>
+                )
+            })}   
         </div>
     </div>
     )

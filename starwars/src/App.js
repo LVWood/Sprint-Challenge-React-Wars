@@ -37,23 +37,21 @@ class App extends Component {
       });
   };
 
-  filterTraits = key => {
-    const filtered = this.state.getCharacters.filter(trait => {
-      return trait.key === key
-    })
-    this.setState({ starWarsChars: filtered })
-  }
- 
 
   render() {
+    // console.log(this.state.starWarsChars)
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <Characters 
-          charData = {this.getCharacters}
-          filteredChars = {this.state.filtered}
-          characters={this.state.starWarsChars} 
-        />  
+        {this.state.starWarsChars.map(char => {
+          return (
+            <Characters 
+            charData = {this.state.getCharacters}
+            characters={this.state.starWarsChars} 
+          />  
+          )
+        })}
+       
       </div>
     );
   }
