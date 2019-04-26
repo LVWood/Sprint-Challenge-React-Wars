@@ -50,6 +50,7 @@ class App extends Component {
       <div className="App">
         <h1 className="Header">React Wars</h1>
         <Characters 
+          charData = {this.getCharacters}
           filteredChars = {this.state.filtered}
           characters={this.state.starWarsChars} 
         />  
