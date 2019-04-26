@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import Characters from './components/Characters';
+
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starWarsChars: [],
+      currentItem: {
+        name: '',
+        homeworld: '',
+        species: '',
+        films: '',
+      }
     };
   }
 
@@ -22,17 +30,29 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+        this.setState({ starWarsChars: data.results });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  filterTraits = key => {
+    const filtered = this.state.getCharacters.filter(trait => {
+      return trait.key === key
+    })
+    this.setState({ starWarsChars: filtered })
+  }
+ 
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <Characters 
+          filteredChars = {this.state.filtered}
+          characters={this.state.starWarsChars} 
+        />  
       </div>
     );
   }
