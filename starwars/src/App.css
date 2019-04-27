@@ -4,5 +4,19 @@
 .Header {
   color: #443e3e;
   text-shadow: 1px 1px 5px #fff;
+  font-family: 'star-jedi', arial;
 }
 /* write your parent styles in here for your App.js */
+.character-card {
+  background-color: white;
+  opacity: .75;
+  padding: 10px 100px;
+  text-align: left;
+  line-height: 1.25rem;
+
+}
+
+.character-card h3 {
+  line-height: .4rem;
+}
+
