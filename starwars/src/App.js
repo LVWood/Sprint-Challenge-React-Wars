@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import Characters from './components/Characters';
+import CharacterList from './components/CharacterList';
 
 import './App.css';
+
+
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       starWarsChars: [],
-      currentItem: {
-        name: '',
-        homeworld: '',
-        species: '',
-        films: '',
-      }
-    };
+      name: "",
+      birth_year: "",
+      height: "",
+      mass: "",
+      homeworld: "",
+      species: "",
+    }
   }
 
   componentDidMount() {
@@ -30,6 +33,7 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data);
         this.setState({ starWarsChars: data.results });
       })
       .catch(err => {
@@ -37,24 +41,30 @@ class App extends Component {
       });
   };
 
+  
+
 
   render() {
-    // console.log(this.state.starWarsChars)
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        {this.state.starWarsChars.map(char => {
-          return (
-            <Characters 
-            charData = {this.state.getCharacters}
-            characters={this.state.starWarsChars} 
-          />  
-          )
-        })}
-       
+        <div className="card-container">
+          <div className=".character-card">
+            <CharacterList 
+              starWarsChars={this.state.starWarsChars} 
+              name={this.state.name}
+              birth_year={this.state.birth_year}
+              height={this.state.height}
+              mass={this.state.mass}
+              homeworld={this.state.homeworld}
+              species={this.state.species}
+            />
+          </div>
+        </div>
+
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

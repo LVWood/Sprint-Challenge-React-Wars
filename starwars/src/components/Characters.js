@@ -1,26 +1,19 @@
 import React from 'react';
 
 const Characters = props => {
-
     return (
-    <div className="character-card">
-        <div className="character-stats">
-        {this.state.charData.map(character => {
-            return (
-                <div>
-                    <h3>{props.characters.name}Name</h3>
-                    <ul>
-                        <li>{props.characters.homeworld}homeworld</li>
-                        <li>{props.characters.species}species</li>
-                        <li>{props.characters.films}movies</li>
-                    </ul>
-                </div>
-                )
-            })}   
+        <div className="character-card">
+            <div className="container-border">
+                <h3>{props.character.name}</h3>
+                <p><strong>birth year:</strong> {props.character.birth_year}</p>
+                <p><strong>height:</strong> {props.character.height}</p>
+                <p><strong>mass:</strong> {props.character.mass}</p>
+                <ul><strong>homeworld:</strong> <a href={props.character.homeworld}>{props.character.homeworld}</a></ul>
+                <ul><strong>species:</strong> <a href={props.character.species}>{props.character.species}</a></ul>
+            </div>
         </div>
-    </div>
+        
     )
- }   
-  
+}
 
 export default Characters;

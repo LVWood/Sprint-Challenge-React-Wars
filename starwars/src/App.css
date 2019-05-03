@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #443e3e;
 }
 .Header {
   color: #443e3e;
@@ -7,16 +8,37 @@
   font-family: 'star-jedi', arial;
 }
 /* write your parent styles in here for your App.js */
+
+.container-border {
+  margin: 10px;
+  border: solid 2px black;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  padding: 10px;
+  background-color: none;
+  
+}
+
 .character-card {
   background-color: white;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
   opacity: .75;
-  padding: 10px 100px;
+  padding: 10px;
   text-align: left;
-  line-height: 1.25rem;
-
+  margin: 15px 3rem;
 }
 
 .character-card h3 {
-  line-height: .4rem;
+  line-height: 1.25rem;
+  padding-left: 15px;
+}
+
+.character-card ul, p {
+  font-size: 1rem;
+  padding: 0;
+  padding-left: 30px;
+  line-height: .8rem;
+  
 }
 
