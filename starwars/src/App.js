@@ -12,13 +12,13 @@ class App extends Component {
     this.state = {
       starWarsChars: [],
       name: "",
+      birth_year: "",
+      height: "",
+      mass: "",
       homeworld: "",
       species: "",
     }
   }
-
-
-
 
   componentDidMount() {
     this.getCharacters('https://swapi.co/api/people/');
@@ -33,12 +33,15 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data);
         this.setState({ starWarsChars: data.results });
       })
       .catch(err => {
         throw new Error(err);
       });
   };
+
+  
 
 
   render() {
@@ -50,6 +53,9 @@ class App extends Component {
             <CharacterList 
               starWarsChars={this.state.starWarsChars} 
               name={this.state.name}
+              birth_year={this.state.birth_year}
+              height={this.state.height}
+              mass={this.state.mass}
               homeworld={this.state.homeworld}
               species={this.state.species}
             />
